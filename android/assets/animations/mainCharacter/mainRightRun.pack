@@ -1,0 +1,61 @@
+
+mainRightRun.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+MainRightRun1
+  rotate: false
+  xy: 1, 261
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+MainRightRun2
+  rotate: false
+  xy: 1, 131
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+MainRightRun3
+  rotate: false
+  xy: 99, 261
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+MainRightRun4
+  rotate: false
+  xy: 99, 261
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+MainRightRun6
+  rotate: false
+  xy: 1, 1
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+MainRightRun7
+  rotate: false
+  xy: 99, 131
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+MainRightRun9
+  rotate: false
+  xy: 99, 131
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+MainRightRun8
+  rotate: false
+  xy: 99, 1
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1

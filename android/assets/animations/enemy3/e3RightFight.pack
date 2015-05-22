@@ -1,0 +1,26 @@
+
+e3RightFight.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+e3Fight1
+  rotate: false
+  xy: 1, 1
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+e3Fight3
+  rotate: false
+  xy: 1, 1
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+e3Fight2
+  rotate: false
+  xy: 99, 1
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
