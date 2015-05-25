@@ -3,90 +3,80 @@ animationDollar.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-animationDollar1
+animationDollar01
+  rotate: false
+  xy: 1, 372
+  size: 144, 369
+  orig: 144, 369
+  offset: 0, 0
+  index: -1
+animationDollar02
   rotate: false
   xy: 1, 1
-  size: 240, 615
-  orig: 240, 615
+  size: 144, 369
+  orig: 144, 369
+  offset: 0, 0
+  index: -1
+animationDollar03
+  rotate: false
+  xy: 147, 372
+  size: 144, 369
+  orig: 144, 369
+  offset: 0, 0
+  index: -1
+animationDollar04
+  rotate: false
+  xy: 147, 1
+  size: 144, 369
+  orig: 144, 369
+  offset: 0, 0
+  index: -1
+animationDollar05
+  rotate: false
+  xy: 293, 372
+  size: 144, 369
+  orig: 144, 369
+  offset: 0, 0
+  index: -1
+animationDollar06
+  rotate: false
+  xy: 293, 1
+  size: 144, 369
+  orig: 144, 369
+  offset: 0, 0
+  index: -1
+animationDollar07
+  rotate: false
+  xy: 439, 372
+  size: 144, 369
+  orig: 144, 369
+  offset: 0, 0
+  index: -1
+animationDollar08
+  rotate: false
+  xy: 439, 1
+  size: 144, 369
+  orig: 144, 369
+  offset: 0, 0
+  index: -1
+animationDollar09
+  rotate: false
+  xy: 585, 372
+  size: 144, 369
+  orig: 144, 369
   offset: 0, 0
   index: -1
 animationDollar10
   rotate: false
-  xy: 243, 1
-  size: 240, 615
-  orig: 240, 615
+  xy: 585, 1
+  size: 144, 369
+  orig: 144, 369
   offset: 0, 0
   index: -1
 animationDollar11
   rotate: false
-  xy: 485, 1
-  size: 240, 615
-  orig: 240, 615
-  offset: 0, 0
-  index: -1
-animationDollar2
-  rotate: false
-  xy: 727, 1
-  size: 240, 615
-  orig: 240, 615
-  offset: 0, 0
-  index: -1
-
-animationDollar2.png
-format: RGBA8888
-filter: Nearest,Nearest
-repeat: none
-animationDollar3
-  rotate: false
-  xy: 1, 1
-  size: 240, 615
-  orig: 240, 615
-  offset: 0, 0
-  index: -1
-animationDollar4
-  rotate: false
-  xy: 243, 1
-  size: 240, 615
-  orig: 240, 615
-  offset: 0, 0
-  index: -1
-animationDollar5
-  rotate: false
-  xy: 485, 1
-  size: 240, 615
-  orig: 240, 615
-  offset: 0, 0
-  index: -1
-animationDollar6
-  rotate: false
-  xy: 727, 1
-  size: 240, 615
-  orig: 240, 615
-  offset: 0, 0
-  index: -1
-
-animationDollar3.png
-format: RGBA8888
-filter: Nearest,Nearest
-repeat: none
-animationDollar7
-  rotate: false
-  xy: 1, 1
-  size: 240, 615
-  orig: 240, 615
-  offset: 0, 0
-  index: -1
-animationDollar8
-  rotate: false
-  xy: 243, 1
-  size: 240, 615
-  orig: 240, 615
-  offset: 0, 0
-  index: -1
-animationDollar9
-  rotate: false
-  xy: 485, 1
-  size: 240, 615
-  orig: 240, 615
+  xy: 731, 372
+  size: 144, 369
+  orig: 144, 369
   offset: 0, 0
   index: -1

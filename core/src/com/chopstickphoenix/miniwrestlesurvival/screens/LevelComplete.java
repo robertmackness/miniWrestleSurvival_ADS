@@ -5,6 +5,7 @@ import java.text.DecimalFormat;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
@@ -62,13 +63,13 @@ public class LevelComplete implements Screen {
 		public Animation animationDollar;
 		
 		public DollarSign() {
-			animationDollar = new Animation(1/20f, AssetLoader.animationDollar.getRegions());
+			animationDollar = new Animation(1/10f, AssetLoader.animationDollar.getRegions());
 			animationDollar.setPlayMode(PlayMode.NORMAL);
 		}
 		
 		public void draw(SpriteBatch batch, float delta){
 			animationTimerDollar += delta;
-			batch.draw(this.animationDollar.getKeyFrame(animationTimerDollar), scorePosition.x, scorePosition.y);
+			batch.draw(animationDollar.getKeyFrame(animationTimerDollar), scorePosition.x, scorePosition.y);
 		}
 		public boolean getIsFinished(){
 			return (animationDollar.isAnimationFinished(animationTimerDollar));
@@ -102,6 +103,9 @@ public class LevelComplete implements Screen {
 	}
 
 	private void handleGraphics(float delta) {
+		Gdx.gl.glClearColor(0, 0, 0, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 		spriteBackground.draw(batch);
@@ -158,6 +162,7 @@ public class LevelComplete implements Screen {
 					gameData.setCurrentScore(gameData.getCurrentScore()-intCostAtkPwr);
 					inputVector3.set(0, 0, 0);
 					AssetLoader.cashRegister.play();
+					dollars.add(new DollarSign());
 				}
 			}
 			if (rectBuyHealth.contains(inputVector3.x, inputVector3.y)){
@@ -166,6 +171,7 @@ public class LevelComplete implements Screen {
 					gameData.setCurrentScore(gameData.getCurrentScore()-intCostHealth);
 					inputVector3.set(0, 0, 0);
 					AssetLoader.cashRegister.play();
+					dollars.add(new DollarSign());
 				}
 			}
 			if (rectBuyEnergy.contains(inputVector3.x, inputVector3.y)){
@@ -174,6 +180,7 @@ public class LevelComplete implements Screen {
 					gameData.setCurrentScore(gameData.getCurrentScore()-intCostBeanz);
 					inputVector3.set(0, 0, 0);
 					AssetLoader.cashRegister.play();
+					dollars.add(new DollarSign());
 				}
 			}
 		}
