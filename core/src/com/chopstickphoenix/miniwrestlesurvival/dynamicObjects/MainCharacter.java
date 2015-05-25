@@ -11,7 +11,7 @@ import com.chopstickphoenix.miniwrestlesurvival.utilities.GameData;
 
 
 public class MainCharacter {
-
+ 
 	//graphics
 	private TextureAtlas atlasRunningRight = AssetLoader.mainCharacterRunningRight;
 	private Animation animationRunningRight = new Animation(1/60f, atlasRunningRight.getRegions());

@@ -18,8 +18,8 @@ public class AssetLoader {
 	static public TextureRegion levelComplete, gameOver;
 	static public TextureRegion hudOverlay;
 	//Dynamic Game Objects
-	static public TextureRegion chairBullet, enemy1, enemy2, enemy3, enemy4, enemy5, enemy6, enemy7, explosion, lightning1, lightning2, lightning3;
-	static public TextureAtlas explosionSmall, animationDollar;
+	static public TextureRegion chairBullet, enemy1, enemy2, enemy3, enemy4, enemy5, enemy6, enemy7, explosion, lightning1, lightning2, lightning3, piano;
+	static public TextureAtlas explosionSmall, explosionLarge, animationDollar;
 	//Main Character Assets
 	static public TextureAtlas mainCharacterRunningRight, mainCharacterThrowChairRight,
 									mainCharacterThrowChairLeft, mainCharacterRunningLeft;
@@ -60,6 +60,7 @@ public class AssetLoader {
 		//Dynamic Game Objects
 		explosion = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/explosion.png")));
 		chairBullet = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/chair.png")));
+		piano = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/piano.png")));
 		enemy1 = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/enemy1.png")));
 		enemy2 = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/enemy2.png")));
 		enemy3 = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/enemy3.png")));
@@ -71,6 +72,7 @@ public class AssetLoader {
 		lightning2 = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/lightning2.png")));
 		lightning3 = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/lightning3.png")));
 		explosionSmall = new TextureAtlas(Gdx.files.internal("animations/explosions/explosionSmall.pack"));
+		explosionLarge = new TextureAtlas(Gdx.files.internal("animations/explosions/explosionLarge.pack"));
 		animationDollar = new TextureAtlas(Gdx.files.internal("animations/dollar/animationDollar.pack"));
 		//Main Character Assets
 		mainCharacterRunningLeft = new TextureAtlas(Gdx.files.internal("animations/mainCharacter/mainLeftRun.pack"));

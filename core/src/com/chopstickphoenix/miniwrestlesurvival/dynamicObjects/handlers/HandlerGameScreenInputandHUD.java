@@ -44,7 +44,7 @@ public class HandlerGameScreenInputandHUD {
 	private Sprite spriteGameOver;
 	private static int screenWidth = 1280;
 	private static int screenHeight = 720;
-	private OrthographicCamera camera;
+	private OrthographicCamera cameraHUD;
 	private SpriteBatch batch;
 
 	
@@ -70,10 +70,10 @@ public class HandlerGameScreenInputandHUD {
 		//Other
 		voiceEndLevelPlayed = false;
 		//test - divorce HUD from gamescreen camera and coords
-		camera = new OrthographicCamera();
-		camera.setToOrtho(false, screenWidth, screenHeight);
+		cameraHUD = new OrthographicCamera();
+		cameraHUD.setToOrtho(false, screenWidth, screenHeight);
 		batch = new SpriteBatch();
-		batch.setProjectionMatrix(camera.combined);
+		batch.setProjectionMatrix(cameraHUD.combined);
 	}
 
 	public void drawHUD(){
@@ -97,9 +97,8 @@ public class HandlerGameScreenInputandHUD {
 		for (int i = 0; i<= MAX_INPUT_FINGERS; i++){
 			if (Gdx.input.isTouched(i)){ //check if index pointers 0 to 1 are touched
 				vector3TouchInput = new Vector3(Gdx.input.getX(i), Gdx.input.getY(i), 0); //getting x and y of current indexed pointer and storing here
-				camera.unproject(vector3TouchInput);
-				//gameScreen.getCamera().unproject(vector3TouchInput); //translating them from screen co-ords to game co-ords, as the camera stretches things out
-
+				cameraHUD.unproject(vector3TouchInput);
+				
 				if (rectangleThrowChairButtonBounds.contains(vector3TouchInput.x, vector3TouchInput.y)){
 					gameScreen.getHandlerCHairs().throwChair();	
 									}
@@ -126,9 +125,9 @@ public class HandlerGameScreenInputandHUD {
 	
 
 	public void handlePausedInput(){
-		Rectangle rectLevelComplete = new Rectangle(screenWidth/2 - spriteLevelComplete.getWidth()/2,screenHeight/2-spriteLevelComplete.getHeight()/2, spriteLevelComplete.getWidth(),spriteLevelComplete.getHeight());
+		Rectangle rectLevelComplete = new Rectangle(spriteLevelComplete.getX(),spriteLevelComplete.getY(), spriteLevelComplete.getWidth(),spriteLevelComplete.getHeight());
 		Vector3 vector3PausedInput = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);	
-		camera.unproject(vector3TouchInput);
+		cameraHUD.unproject(vector3PausedInput);
 		
 		if(gameScreen.gameState == enumGameState.LEVELCOMPLETE){
 			if(gameData.getHealth() == 100 && !voiceEndLevelPlayed){

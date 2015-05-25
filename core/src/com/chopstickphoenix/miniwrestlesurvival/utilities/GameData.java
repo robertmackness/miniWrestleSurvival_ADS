@@ -24,7 +24,7 @@ public class GameData {
 	private Array<Chair> arrayChairs;
 	private Array<Lightning> arrayLightning;
 	private Array<Fart> arrayFarts;
-
+ 
 	public GameData(){
 		health = 100;
 		cansOfBeans = 3;
