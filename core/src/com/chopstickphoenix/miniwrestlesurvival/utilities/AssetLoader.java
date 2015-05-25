@@ -19,7 +19,7 @@ public class AssetLoader {
 	static public TextureRegion hudOverlay;
 	//Dynamic Game Objects
 	static public TextureRegion chairBullet, enemy1, enemy2, enemy3, enemy4, enemy5, enemy6, enemy7, explosion, lightning1, lightning2, lightning3;
-	static public TextureAtlas explosionSmall;
+	static public TextureAtlas explosionSmall, animationDollar;
 	//Main Character Assets
 	static public TextureAtlas mainCharacterRunningRight, mainCharacterThrowChairRight,
 									mainCharacterThrowChairLeft, mainCharacterRunningLeft;
@@ -40,7 +40,7 @@ public class AssetLoader {
 
 	//Sounds
 	static public Sound throwChair, chairCollision, fart, footStep, voiceDenied, voiceFlawlessVictory, 
-						voiceGodlike, voiceHeadshot, voiceUnstoppable, lightning, jump;
+						voiceGodlike, voiceHeadshot, voiceUnstoppable, lightning, jump, cashRegister;
 	static public Music musicLoop;
 	
 	static public void load() {
@@ -71,6 +71,7 @@ public class AssetLoader {
 		lightning2 = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/lightning2.png")));
 		lightning3 = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/lightning3.png")));
 		explosionSmall = new TextureAtlas(Gdx.files.internal("animations/explosions/explosionSmall.pack"));
+		animationDollar = new TextureAtlas(Gdx.files.internal("animations/dollar/animationDollar.pack"));
 		//Main Character Assets
 		mainCharacterRunningLeft = new TextureAtlas(Gdx.files.internal("animations/mainCharacter/mainLeftRun.pack"));
 		mainCharacterRunningRight = new TextureAtlas(Gdx.files.internal("animations/mainCharacter/mainRightRun.pack"));
@@ -93,6 +94,7 @@ public class AssetLoader {
 		voiceUnstoppable = Gdx.audio.newSound(Gdx.files.internal("sounds/voiceGodlike.mp3"));
 		lightning = Gdx.audio.newSound(Gdx.files.internal("sounds/lightning.mp3"));
 		jump = Gdx.audio.newSound(Gdx.files.internal("sounds/jump.wav"));
+		cashRegister = Gdx.audio.newSound(Gdx.files.internal("sounds/cashRegister.mp3"));
 		//Enemies
 		e1Climb = new TextureAtlas(Gdx.files.internal("animations/enemy1/e1Climb.pack"));
 		e1RightFight = new TextureAtlas(Gdx.files.internal("animations/enemy1/e1RightFight.pack"));

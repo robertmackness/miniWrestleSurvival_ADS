@@ -6,12 +6,15 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.Array;
 import com.chopstickphoenix.miniwrestlesurvival.utilities.AssetLoader;
 import com.chopstickphoenix.miniwrestlesurvival.utilities.GameData;
 
@@ -27,7 +30,8 @@ public class LevelComplete implements Screen {
 	private OrthographicCamera camera;
 	private DecimalFormat df;
 	private Vector3 inputVector3;
-	
+	private Array<DollarSign> dollars;
+
 	//Temp Utility
 	//ShapeRenderer shapeRenderer;
 	
@@ -53,6 +57,24 @@ public class LevelComplete implements Screen {
 		this.gameData = gameData;
 	}
 	
+	private class DollarSign {
+		public float animationTimerDollar;
+		public Animation animationDollar;
+		
+		public DollarSign() {
+			animationDollar = new Animation(1/20f, AssetLoader.animationDollar.getRegions());
+			animationDollar.setPlayMode(PlayMode.NORMAL);
+		}
+		
+		public void draw(SpriteBatch batch, float delta){
+			animationTimerDollar += delta;
+			batch.draw(this.animationDollar.getKeyFrame(animationTimerDollar), scorePosition.x, scorePosition.y);
+		}
+		public boolean getIsFinished(){
+			return (animationDollar.isAnimationFinished(animationTimerDollar));
+		}
+	}
+		
 	@Override
 	public void show() {
 		camera = new OrthographicCamera();
@@ -62,6 +84,7 @@ public class LevelComplete implements Screen {
 		gameData.setLevel(gameData.getLevel() +1); //add 1 level
 		df = new DecimalFormat("#.##"); //used to round any numbers to 2 decimal points
 		inputVector3 = new Vector3();
+		dollars = new Array<DollarSign>();
 		//Score handlers
 		intCostAtkPwr = (int) (gameData.getCurrentScore() * 0.6);
 		intCostBeanz  = (int) (gameData.getCurrentScore() * 0.6);
@@ -74,11 +97,11 @@ public class LevelComplete implements Screen {
 
 	@Override
 	public void render(float delta) {
-	handleGraphics();
+	handleGraphics(delta);
 	handleInput();
 	}
 
-	private void handleGraphics() {
+	private void handleGraphics(float delta) {
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 		spriteBackground.draw(batch);
@@ -93,6 +116,13 @@ public class LevelComplete implements Screen {
 		//beanz string
 		if(gameData.getCansOfBeans() < 3)font.draw(batch, "Extra fartz: " + intCostBeanz, energyPosition.x, energyPosition.y);
 		if(gameData.getCansOfBeans() == 3)font.draw(batch, "3/3 Canz", energyPosition.x, energyPosition.y);
+		// draw dollar signs
+		for (DollarSign d : dollars){
+			d.draw(batch, delta);
+			if (d.getIsFinished()){
+				dollars.removeValue(d, false);
+			}
+		}
 		batch.end();
 		
 		/*
@@ -120,29 +150,30 @@ public class LevelComplete implements Screen {
 				wrestleRumble.setScreen(new GameScreen(wrestleRumble, gameData));
 				System.out.println("Launching new level from LevelComplete Screen");
 				inputVector3.set(0, 0, 0);
+				AssetLoader.lightning.play();
 			}
 			if (rectBuyAttackPwr.contains(inputVector3.x, inputVector3.y)){
 				if (gameData.getCurrentScore() >= intCostAtkPwr){
 					gameData.setAttackPower(gameData.getAttackPower() + 1);
 					gameData.setCurrentScore(gameData.getCurrentScore()-intCostAtkPwr);
-					AssetLoader.chairCollision.play();
 					inputVector3.set(0, 0, 0);
+					AssetLoader.cashRegister.play();
 				}
 			}
 			if (rectBuyHealth.contains(inputVector3.x, inputVector3.y)){
 				if (gameData.getCurrentScore() >= intCostHealth && gameData.getHealth() != 100){
 					gameData.setHealth(100);
 					gameData.setCurrentScore(gameData.getCurrentScore()-intCostHealth);
-					AssetLoader.lightning.play();
 					inputVector3.set(0, 0, 0);
+					AssetLoader.cashRegister.play();
 				}
 			}
 			if (rectBuyEnergy.contains(inputVector3.x, inputVector3.y)){
 				if (gameData.getCurrentScore() >= intCostBeanz && gameData.getCansOfBeans() <= 2){
 					gameData.setCansOfBeans(3);
 					gameData.setCurrentScore(gameData.getCurrentScore()-intCostBeanz);
-					AssetLoader.fart.play();
 					inputVector3.set(0, 0, 0);
+					AssetLoader.cashRegister.play();
 				}
 			}
 		}

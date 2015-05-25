@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 
+import com.badlogic.gdx.assets.loaders.AssetLoader;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.badlogic.gdx.utils.Timer;
@@ -130,6 +131,7 @@ public class AndroidLauncher extends AndroidApplication implements MackdaddyInte
 	public void onPause() {
 	    super.onPause();
 	    Swarm.setInactive(this);
+	    com.chopstickphoenix.miniwrestlesurvival.utilities.AssetLoader.musicLoop.stop();
 	}
 
 @Override
