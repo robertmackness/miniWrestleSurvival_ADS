@@ -20,7 +20,7 @@ public class HandlerPiano {
 	private int rectStationaryWidth = 480;
 	private int rectStationaryHeight = 420;
 	private int counter;
-	private int counterThreshold = 140;
+	private int counterThreshold = 240;
 	private static int pianoSpeed = 13;
 	private static int pianoDamage = 50;
 	private Array<Piano> arrayPianos;
