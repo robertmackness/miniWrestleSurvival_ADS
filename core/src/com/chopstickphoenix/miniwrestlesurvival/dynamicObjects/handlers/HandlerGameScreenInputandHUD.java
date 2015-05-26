@@ -123,25 +123,19 @@ public class HandlerGameScreenInputandHUD {
 	}
 	
 	
-
+// method variable.. bad place to put it I know lol
+	Vector3 vector3PausedInput = new Vector3();
 	public void handlePausedInput(){
 		Rectangle rectLevelComplete = new Rectangle(spriteLevelComplete.getX(),spriteLevelComplete.getY(), spriteLevelComplete.getWidth(),spriteLevelComplete.getHeight());
-		Vector3 vector3PausedInput = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);	
+		vector3PausedInput.set(Gdx.input.getX(), Gdx.input.getY(), 0);	
 		cameraHUD.unproject(vector3PausedInput);
 		
 		if(gameScreen.gameState == enumGameState.LEVELCOMPLETE){
-			if(gameData.getHealth() == 100 && !voiceEndLevelPlayed){
-				AssetLoader.voiceFlawlessVictory.play();
-				voiceEndLevelPlayed = true;				
-			}		
-			if(gameData.getHealth() < 100 && !voiceEndLevelPlayed){
-				int r = MathUtils.random(1, 2);
-				if(r == 1)	AssetLoader.voiceGodlike.play();
-				if(r == 2)	AssetLoader.voiceUnstoppable.play();
+			if(!voiceEndLevelPlayed){
+				AssetLoader.voiceGodlike.play();
 				voiceEndLevelPlayed = true;
 			}		
 			if (!Gdx.input.isTouched()){
-				gameScreen.getCamera().unproject(vector3PausedInput);
 				if(rectLevelComplete.contains(vector3PausedInput.x,vector3PausedInput.y)){
 					game.setScreen(new LevelComplete(game, gameData));
 				}
@@ -154,7 +148,6 @@ public class HandlerGameScreenInputandHUD {
 				voiceEndLevelPlayed = true;
 			}
 			if (!Gdx.input.isTouched()){
-				gameScreen.getCamera().unproject(vector3PausedInput);
 				if(rectLevelComplete.contains(vector3PausedInput.x,vector3PausedInput.y)){
 					gameData.resetALL();
 					game.setScreen(new MainMenu(game, gameData));

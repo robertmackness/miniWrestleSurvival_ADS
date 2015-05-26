@@ -40,7 +40,7 @@ public class AssetLoader {
 
 	//Sounds
 	static public Sound throwChair, chairCollision, fart, footStep, voiceDenied, voiceFlawlessVictory, 
-						voiceGodlike, voiceHeadshot, voiceUnstoppable, lightning, jump, cashRegister;
+						voiceGodlike, voiceHeadshot, voiceUnstoppable, lightning, jump, cashRegister, explosionLargeSound;
 	static public Music musicLoop;
 	
 	static public void load() {
@@ -97,6 +97,7 @@ public class AssetLoader {
 		lightning = Gdx.audio.newSound(Gdx.files.internal("sounds/lightning.mp3"));
 		jump = Gdx.audio.newSound(Gdx.files.internal("sounds/jump.wav"));
 		cashRegister = Gdx.audio.newSound(Gdx.files.internal("sounds/cashRegister.mp3"));
+		explosionLargeSound = Gdx.audio.newSound(Gdx.files.internal("sounds/explosionLarge.mp3"));
 		//Enemies
 		e1Climb = new TextureAtlas(Gdx.files.internal("animations/enemy1/e1Climb.pack"));
 		e1RightFight = new TextureAtlas(Gdx.files.internal("animations/enemy1/e1RightFight.pack"));
