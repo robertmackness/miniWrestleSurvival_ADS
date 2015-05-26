@@ -1,5 +1,6 @@
 package com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.handlers;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -16,20 +17,22 @@ public class HandlerPiano {
 
 	private MainCharacter mainChar;
 	private Rectangle rectStationaryZone;
+	private int rectStationaryWidth = 480;
+	private int rectStationaryHeight = 420;
 	private int counter;
-	private int counterThreshold = 240;
-	private static int pianoSpeed = 10;
+	private int counterThreshold = 140;
+	private static int pianoSpeed = 13;
 	private static int pianoDamage = 50;
 	private Array<Piano> arrayPianos;
 	private Array<Explosion> arrayExplosions;
 	private int arenaFloor = 220;
-	private int pianoRotationSpeed = 20;
+	private int pianoRotationSpeed = 5;
 
 
 	public HandlerPiano(GameData g){
 		this.gameData = g;
 		mainChar = gameData.getMainCharacter();
-		rectStationaryZone = new Rectangle(mainChar.getPosition().x - 160, mainChar.getPosition().y, 320, 420);
+		rectStationaryZone = new Rectangle(mainChar.getPosition().x - 160, mainChar.getPosition().y, rectStationaryWidth, rectStationaryHeight);
 		arrayPianos = new Array<Piano>();
 		arrayExplosions = new Array<Explosion>();
 	}
@@ -104,7 +107,7 @@ public class HandlerPiano {
 			
 			public void draw(SpriteBatch batch) {
 				spritePiano.setPosition(rectCollision.x, rectCollision.y-40);
-				spritePiano.setRotation(pianoRotationSpeed);
+				spritePiano.setRotation(spritePiano.getRotation()+ pianoRotationSpeed);
 				spritePiano.draw(batch);
 			}
 

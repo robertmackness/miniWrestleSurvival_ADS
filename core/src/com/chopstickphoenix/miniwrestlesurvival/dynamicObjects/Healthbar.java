@@ -35,7 +35,7 @@ public void update(Vector2 pos, float health){
 	else if(health>=10)healthbar = AssetLoader.healthBar10;
 	else if(health>=5)healthbar = AssetLoader.healthBar5;
 	else if(health>=1)healthbar = AssetLoader.healthBar1;
-	else if(health==0)healthbar = AssetLoader.healthBar0;
+	else if(health<=0)healthbar = AssetLoader.healthBar0;
 	healthbar.setPosition(pos.x-4, pos.y+120);
 }
 

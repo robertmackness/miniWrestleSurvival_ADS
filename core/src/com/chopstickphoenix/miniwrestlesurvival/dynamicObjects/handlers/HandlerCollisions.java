@@ -2,6 +2,7 @@ package com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.handlers;
 
 import java.util.Iterator;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
 import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.Chair;
