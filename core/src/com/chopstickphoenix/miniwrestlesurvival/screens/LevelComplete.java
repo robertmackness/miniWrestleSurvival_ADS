@@ -87,7 +87,7 @@ public class LevelComplete implements Screen {
 		inputVector3 = new Vector3();
 		dollars = new Array<DollarSign>();
 		//Score handlers
-		intCostAtkPwr = (int) (gameData.getCurrentScore() * 0.6);
+		intCostAtkPwr = (int) (gameData.getCurrentScore() * 0.7);
 		intCostBeanz  = (int) (gameData.getCurrentScore() * 0.6);
 		intCostHealth  = (int) (gameData.getCurrentScore() * 0.2);
 		stringCurrentScore = ""+ gameData.getCurrentScore();
@@ -118,8 +118,8 @@ public class LevelComplete implements Screen {
 		if(gameData.getHealth()<100)font.draw(batch, "Health Restore: "+ intCostHealth, healthPosition.x, healthPosition.y);
 		if(gameData.getHealth()==100)font.draw(batch, "Health at 100%", healthPosition.x, healthPosition.y);
 		//beanz string
-		if(gameData.getCansOfBeans() < 3)font.draw(batch, "Extra fartz: " + intCostBeanz, energyPosition.x, energyPosition.y);
-		if(gameData.getCansOfBeans() == 3)font.draw(batch, "3/3 Canz", energyPosition.x, energyPosition.y);
+		if(gameData.getCansOfBeans() < 3)font.draw(batch, "Extra fartz: " + intCostBeanz+ " Current: " + gameData.getCansOfBeans(), energyPosition.x, energyPosition.y);
+		if(gameData.getCansOfBeans() == 3)font.draw(batch, "3/3 fartz", energyPosition.x, energyPosition.y);
 		// draw dollar signs
 		for (DollarSign d : dollars){
 			d.draw(batch, delta);

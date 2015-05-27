@@ -49,7 +49,6 @@ public abstract class HandlerCollisions {
 
 			//remove current enemy if dead
 			if(e.state == enumEnemyState.DEAD){
-				HandlerCombo.addComboCounter();
 				gameData.setCurrentScore(gameData.getCurrentScore() + (e.getStartingHealth()*2)*HandlerCombo.comboMultiplier()); //TODO check this works comboMultiplier
 				iteratorEnemies.remove();
 				//enemies.removeValue(e, true);
@@ -84,6 +83,7 @@ public abstract class HandlerCollisions {
 					System.out.println("chair hit enemy");	
 					//Sound Effect
 					AssetLoader.chairCollision.play();
+					HandlerCombo.addComboCounter(); //TODO make sure works addComboCounter on chair hit
 				} continue;
 			}
 

@@ -13,10 +13,10 @@ public class HandlerEnemies {
 
 	private GameData gameData;
 	private Array<Enemy> enemyArray;
-	private float enemySpawnInterval = 750000000f;	
+	private float enemySpawnInterval = 1000000000f;	
 	private int enemySpawnLimit;
 	private int numberofEnemiesLeftToSpawn = 0;
-	private float enemySpawnIntervalDecreaser = 50000000f;
+	private float enemySpawnIntervalDecreaser = 75000000f;
 	private float enemyspawnTimer;
 	private boolean lastEnemySpawned = false;
 	private int screenLeft = 0;
@@ -27,7 +27,7 @@ public class HandlerEnemies {
 		this.gameData = gameData;
 		this.enemyArray = gameData.getArrayEnemies();
 		enemyArray.clear(); //ensure this is empty from previous levels
-		enemySpawnLimit = gameData.getLevel() * 5 + 15;
+		enemySpawnLimit = gameData.getLevel() * 3 + 15;
 		numberofEnemiesLeftToSpawn += enemySpawnLimit; //set in show() method
 		if (enemySpawnInterval >= 400000000f) enemySpawnInterval -= gameData.getLevel()*enemySpawnIntervalDecreaser;
 		if (enemySpawnInterval <= 50000000f) enemySpawnInterval = 50000000f;
@@ -37,7 +37,7 @@ public class HandlerEnemies {
 
 
 	public void handleEnemySpawns(){
-		int random = MathUtils.random(Math.max(1, gameData.getLevel()-3), gameData.getLevel()+1); //sets hardest enemy to current level
+		int random = MathUtils.random(Math.max(1, gameData.getLevel()-10), gameData.getLevel()+1);
 
 		if(numberofEnemiesLeftToSpawn > 0){
 			if(TimeUtils.nanoTime() - enemyspawnTimer > enemySpawnInterval){

@@ -121,7 +121,7 @@ public class GameScreen implements Screen {
 		Gdx.gl.glClearColor(0.01f, 0.01f, 0.01f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.setProjectionMatrix(camera.combined);
-		camera.position.set(mainCharacter.getRectangleCollision().x, mainCharacter.getRectangleCollision().y + 720/4, 0);
+		camera.position.set(mainCharacter.getRectangleCollision().x+48, mainCharacter.getRectangleCollision().y + 720/4, 0);
 		camera.update();
 		//Batch commands begin
 		batch.begin();
@@ -132,9 +132,8 @@ public class GameScreen implements Screen {
 		handlerEnemies.render(batch, delta);
 		handlerLightning.render(batch, delta);
 		handlerPianos.draw(batch, delta);
-		HandlerCombo.draw(batch, delta);
 		batch.end();
-		handlerHUD.drawHUD(); //used to send (batch) as parameter
+		handlerHUD.drawHUD(delta); //used to send (batch) as parameter
 		//Batch commands end
 		camera.update();
 	}

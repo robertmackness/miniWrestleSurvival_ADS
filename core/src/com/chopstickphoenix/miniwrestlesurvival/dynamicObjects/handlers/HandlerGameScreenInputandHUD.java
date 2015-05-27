@@ -38,7 +38,7 @@ public class HandlerGameScreenInputandHUD {
 	private Vector2 fartDisplay;
 	private Vector2 vector2HUDOverlayPosition;
 	private Sprite HUDOverlay;
-
+	private String score;
 	private boolean voiceEndLevelPlayed;
 	private Sprite spriteLevelComplete;
 	private Sprite spriteGameOver;
@@ -58,7 +58,7 @@ public class HandlerGameScreenInputandHUD {
 		rectangleThrowChairButtonBounds = 		new Rectangle(1140, 0, 120, 120);
 		rectangleFartButtonBounds = 			new Rectangle(1020, 0, 120, 120);
 		rectangleHUDJump = 						new Rectangle(1140, 140, 120,120);
-		scoreDisplay = 							new Vector2(1110, 590);
+		scoreDisplay = 							new Vector2(1108, 590);
 		fartDisplay = 							new Vector2(960, 60);
 		// HUD Sprites
 		HUDOverlay = new Sprite(AssetLoader.hudOverlay);
@@ -76,11 +76,12 @@ public class HandlerGameScreenInputandHUD {
 		batch.setProjectionMatrix(cameraHUD.combined);
 	}
 
-	public void drawHUD(){
+	public void drawHUD(float delta){
 		batch.begin(); //remove if test unsuccessufl
-
+		HandlerCombo.draw(batch, delta);
 		HUDOverlay.draw(batch);
-		AssetLoader.font.draw(batch, "" + gameData.getCurrentScore(), scoreDisplay.x, scoreDisplay.y);
+		score = ""+ gameData.getCurrentScore();
+		AssetLoader.font.draw(batch, score, scoreDisplay.x - AssetLoader.font.getBounds(score).width / 2, scoreDisplay.y);
 		AssetLoader.font.draw(batch, "" + gameData.getCansOfBeans() + "/3", fartDisplay.x, fartDisplay.y);
 		if(gameScreen.gameState == enumGameState.LEVELCOMPLETE){
 			spriteLevelComplete.draw(batch);

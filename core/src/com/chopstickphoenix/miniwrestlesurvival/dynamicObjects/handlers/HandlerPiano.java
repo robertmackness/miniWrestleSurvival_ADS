@@ -19,14 +19,15 @@ public class HandlerPiano {
 	private Rectangle rectStationaryZone;
 	private int rectStationaryWidth = 480;
 	private int rectStationaryHeight = 420;
+	// counters set as function of gameData.getLevel();
 	private int counter;
-	private int counterThreshold = 240;
-	private static int pianoSpeed = 13;
+	private int counterThreshold;
+	private static int pianoSpeed;
 	private static int pianoDamage = 50;
 	private Array<Piano> arrayPianos;
 	private Array<Explosion> arrayExplosions;
 	private int arenaFloor = 220;
-	private int pianoRotationSpeed = 5;
+	private int pianoRotationSpeed = 2;
 
 
 	public HandlerPiano(GameData g){
@@ -35,6 +36,8 @@ public class HandlerPiano {
 		rectStationaryZone = new Rectangle(mainChar.getPosition().x - 160, mainChar.getPosition().y, rectStationaryWidth, rectStationaryHeight);
 		arrayPianos = new Array<Piano>();
 		arrayExplosions = new Array<Explosion>();
+		pianoSpeed = gameData.getLevel() + 2;
+		counterThreshold = 300 - (gameData.getLevel() * 5);
 	}
 		
 		

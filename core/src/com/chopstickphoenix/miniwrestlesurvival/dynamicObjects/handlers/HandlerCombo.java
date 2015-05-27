@@ -8,13 +8,13 @@ public class HandlerCombo {
 
 	private static int comboCounter;
 	private static int previousComboMultiplier = 1;
-	private static int posX = 495;
-	private static int posY = 104;
-	private static int explosionOffsetX = 496/2 - 192/2;
-	private static int explosionOffsetY = 76/2 - 192/2;
-	private static Animation explosion = new Animation(1/60f, AssetLoader.explosionLarge.getRegions());
-	private static float animationTimer;
-	private static boolean playExplosion;
+	private static int posX = 1008;
+	private static int posY = 514;
+	private static Animation comboAnim = new Animation(1/60f, AssetLoader.combo.getRegions());
+	private static float animationTimerComboAnim;
+	private static boolean playCombo;
+	private static int comboX = 1280/2 - 152/2;
+	private static int comboY = 300;
 
 	private HandlerCombo(){
 		//Make sure this cannot be instantiated
@@ -27,13 +27,13 @@ public class HandlerCombo {
 	public static void clearComboCounter(){
 		comboCounter = 0;
 		previousComboMultiplier = 1;
-		animationTimer = 0;
-		playExplosion = false;
+		animationTimerComboAnim = 0;
+		playCombo = false;
 	}
 
 	public static int comboMultiplier(){
-		float f = (float) comboCounter/10;
-		int i = (int) f;
+		float f = (float) comboCounter/8.0f;
+		int i = (int) f * 1;
 
 		if (i == 0) {
 			return 1;
@@ -49,16 +49,16 @@ public class HandlerCombo {
 		
 		if (previousComboMultiplier < comboMultiplier()){
 			previousComboMultiplier = comboMultiplier();
-			AssetLoader.explosionLargeSound.play();
-			playExplosion = true;
-					}
+			AssetLoader.comboSound.play();
+			playCombo = true;
+		}
 		
-		if(playExplosion){
-			animationTimer += delta;
-			batch.draw(explosion.getKeyFrame(animationTimer), explosionOffsetX,	explosionOffsetY);
-			if(explosion.isAnimationFinished(animationTimer)){
-				playExplosion = false;
-				animationTimer = 0;
+		if (playCombo){
+			animationTimerComboAnim += delta;
+			batch.draw(comboAnim.getKeyFrame(animationTimerComboAnim), comboX, comboY);
+			if (comboAnim.isAnimationFinished(animationTimerComboAnim)){
+				playCombo = false;
+				animationTimerComboAnim = 0;
 			}
 		}
 		
@@ -83,7 +83,6 @@ public class HandlerCombo {
 		} else if (comboMultiplier() == 10){
 			batch.draw(AssetLoader.combo10, posX, posY);
 		} 
-		
 		
 	}
 
