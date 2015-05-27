@@ -30,14 +30,14 @@ public class HandlerEnemies {
 		enemySpawnLimit = gameData.getLevel() * 3 + 15;
 		numberofEnemiesLeftToSpawn += enemySpawnLimit; //set in show() method
 		if (enemySpawnInterval >= 400000000f) enemySpawnInterval -= gameData.getLevel()*enemySpawnIntervalDecreaser;
-		if (enemySpawnInterval <= 50000000f) enemySpawnInterval = 50000000f;
+		if (enemySpawnInterval <= 125000000f) enemySpawnInterval = 125000000f;
 		handleEnemySpawns();
 
 	}
 
 
 	public void handleEnemySpawns(){
-		int random = MathUtils.random(Math.max(1, gameData.getLevel()-10), gameData.getLevel()+1);
+		int random = MathUtils.random(Math.max(1, gameData.getLevel()-14), gameData.getLevel()+1);
 
 		if(numberofEnemiesLeftToSpawn > 0){
 			if(TimeUtils.nanoTime() - enemyspawnTimer > enemySpawnInterval){
