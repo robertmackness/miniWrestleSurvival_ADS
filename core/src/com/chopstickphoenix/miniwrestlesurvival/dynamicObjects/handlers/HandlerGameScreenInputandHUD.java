@@ -125,6 +125,7 @@ public class HandlerGameScreenInputandHUD {
 	
 // method variable.. bad place to put it I know lol
 	Vector3 vector3PausedInput = new Vector3();
+	
 	public void handlePausedInput(){
 		Rectangle rectLevelComplete = new Rectangle(spriteLevelComplete.getX(),spriteLevelComplete.getY(), spriteLevelComplete.getWidth(),spriteLevelComplete.getHeight());
 		vector3PausedInput.set(Gdx.input.getX(), Gdx.input.getY(), 0);	

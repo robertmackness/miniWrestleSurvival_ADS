@@ -12,6 +12,7 @@ import com.chopstickphoenix.miniwrestlesurvival.miniWrestleSurvival;
 import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.MainCharacter;
 import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.handlers.HandlerChairs;
 import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.handlers.HandlerCollisions;
+import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.handlers.HandlerCombo;
 import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.handlers.HandlerEnemies;
 import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.handlers.HandlerFarts;
 import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.handlers.HandlerGameScreenInputandHUD;
@@ -79,6 +80,8 @@ public class GameScreen implements Screen {
 		handlerFarts = new HandlerFarts(gameData);
 		//Piano Stuff
 		handlerPianos =  new HandlerPiano(gameData);
+		//Combo Stuff
+		HandlerCombo.clearComboCounter();
 	}
 
 	@Override
@@ -129,6 +132,7 @@ public class GameScreen implements Screen {
 		handlerEnemies.render(batch, delta);
 		handlerLightning.render(batch, delta);
 		handlerPianos.draw(batch, delta);
+		HandlerCombo.draw(batch, delta);
 		batch.end();
 		handlerHUD.drawHUD(); //used to send (batch) as parameter
 		//Batch commands end

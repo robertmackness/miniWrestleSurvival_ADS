@@ -49,7 +49,8 @@ public abstract class HandlerCollisions {
 
 			//remove current enemy if dead
 			if(e.state == enumEnemyState.DEAD){
-				gameData.setCurrentScore(gameData.getCurrentScore() + e.getStartingHealth()*2);
+				HandlerCombo.addComboCounter();
+				gameData.setCurrentScore(gameData.getCurrentScore() + (e.getStartingHealth()*2)*HandlerCombo.comboMultiplier()); //TODO check this works comboMultiplier
 				iteratorEnemies.remove();
 				//enemies.removeValue(e, true);
 				System.out.println("enemy dead trigger");
@@ -71,6 +72,7 @@ public abstract class HandlerCollisions {
 				if (c.getState() == enum_chair_state.OFF_SCREEN){
 					iteratorChairBullets.remove();
 					//chairBullets.removeValue(c, true);
+					HandlerCombo.clearComboCounter(); //TODO make sure this works clearComboCounter
 					System.out.println("chair off screen");
 				}
 				if(c.getrectangleCollision().overlaps(e.getrectangleCollision()) && e.getState() != enumEnemyState.DEAD){

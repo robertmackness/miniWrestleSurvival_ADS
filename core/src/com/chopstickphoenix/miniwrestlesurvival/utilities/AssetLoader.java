@@ -16,6 +16,7 @@ public class AssetLoader {
 	static public BitmapFont font, fontLarge;
 	//HUD
 	static public TextureRegion levelComplete, gameOver;
+	static public TextureRegion combo1, combo2, combo3, combo4, combo5, combo6, combo7, combo8, combo9, combo10;
 	static public TextureRegion hudOverlay;
 	//Dynamic Game Objects
 	static public TextureRegion chairBullet, enemy1, enemy2, enemy3, enemy4, enemy5, enemy6, enemy7, explosion, lightning1, lightning2, lightning3, piano;
@@ -25,7 +26,6 @@ public class AssetLoader {
 									mainCharacterThrowChairLeft, mainCharacterRunningLeft;
 	static public TextureRegion mainCharacterStationaryRight, mainCharacterStationaryLeft, mainCharacterFartRight, mainCharacterFartLeft;
 	//Enemy Assets
-	//enemy1
 	static public TextureAtlas e1Climb, e1RightFight, e1LeftFight, e1RightRun, e1LeftRun,
 							   e2Climb, e2RightFight, e2LeftFight, e2RightRun, e2LeftRun,
 							   e3Climb, e3RightFight, e3LeftFight, e3RightRun, e3LeftRun,
@@ -57,6 +57,16 @@ public class AssetLoader {
 		hudOverlay = new TextureRegion(new Texture (Gdx.files.internal("hud/HUDOverlay.png")));
 		levelComplete = new TextureRegion(new Texture (Gdx.files.internal("hud/levelComplete.png")));
 		gameOver = new TextureRegion(new Texture (Gdx.files.internal("hud/gameOver.png")));
+		combo1 = new TextureRegion (new Texture (Gdx.files.internal("hud/combo1.png")));
+		combo2 = new TextureRegion (new Texture (Gdx.files.internal("hud/combo2.png")));
+		combo3 = new TextureRegion (new Texture (Gdx.files.internal("hud/combo3.png")));
+		combo4 = new TextureRegion (new Texture (Gdx.files.internal("hud/combo4.png")));
+		combo5 = new TextureRegion (new Texture (Gdx.files.internal("hud/combo5.png")));
+		combo6 = new TextureRegion (new Texture (Gdx.files.internal("hud/combo6.png")));
+		combo7 = new TextureRegion (new Texture (Gdx.files.internal("hud/combo7.png")));
+		combo8 = new TextureRegion (new Texture (Gdx.files.internal("hud/combo8.png")));
+		combo9 = new TextureRegion (new Texture (Gdx.files.internal("hud/combo9.png")));
+		combo10 = new TextureRegion (new Texture (Gdx.files.internal("hud/combo10.png")));
 		//Dynamic Game Objects
 		explosion = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/explosion.png")));
 		chairBullet = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/chair.png")));
