@@ -113,12 +113,13 @@ public class LevelComplete implements Screen {
 		stringCurrentScore = ""+ gameData.getCurrentScore();
 		font.draw(batch, stringCurrentScore, scorePosition.x - font.getBounds(stringCurrentScore).width/2, scorePosition.y - font.getBounds(stringCurrentScore).height/2);
 		//atk pwr steak string
-		font.draw(batch, "Attack Power Upgrade: "+ intCostAtkPwr, attackPowerPosition.x, attackPowerPosition.y);
+		if(gameData.getAttackPower() < 10)font.draw(batch, "Attack Power Upgrade: "+ intCostAtkPwr, attackPowerPosition.x, attackPowerPosition.y);
+		if(gameData.getAttackPower() >= 10)font.draw(batch, "No upgrades available", attackPowerPosition.x, attackPowerPosition.y);
 		//health vegetables string
 		if(gameData.getHealth()<100)font.draw(batch, "Health Restore: "+ intCostHealth, healthPosition.x, healthPosition.y);
 		if(gameData.getHealth()==100)font.draw(batch, "Health at 100%", healthPosition.x, healthPosition.y);
 		//beanz string
-		if(gameData.getCansOfBeans() < 3)font.draw(batch, "Extra fartz: " + intCostBeanz+ " Current: " + gameData.getCansOfBeans(), energyPosition.x, energyPosition.y);
+		if(gameData.getCansOfBeans() < 3)font.draw(batch, "Extra fartz: " + intCostBeanz, energyPosition.x, energyPosition.y);
 		if(gameData.getCansOfBeans() == 3)font.draw(batch, "3/3 fartz", energyPosition.x, energyPosition.y);
 		// draw dollar signs
 		for (DollarSign d : dollars){
@@ -157,7 +158,7 @@ public class LevelComplete implements Screen {
 				AssetLoader.lightning.play();
 			}
 			if (rectBuyAttackPwr.contains(inputVector3.x, inputVector3.y)){
-				if (gameData.getCurrentScore() >= intCostAtkPwr){
+				if (gameData.getCurrentScore() >= intCostAtkPwr && gameData.getAttackPower() <10){
 					gameData.setAttackPower(gameData.getAttackPower() + 1);
 					gameData.setCurrentScore(gameData.getCurrentScore()-intCostAtkPwr);
 					inputVector3.set(0, 0, 0);

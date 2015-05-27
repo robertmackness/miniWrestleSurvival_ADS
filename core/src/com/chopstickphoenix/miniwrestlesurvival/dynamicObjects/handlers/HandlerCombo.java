@@ -8,7 +8,7 @@ public class HandlerCombo {
 
 	private static int comboCounter;
 	private static int previousComboMultiplier = 1;
-	private static int posX = 1008;
+	private static int posX = 1108 - 164/2;
 	private static int posY = 514;
 	private static Animation comboAnim = new Animation(1/60f, AssetLoader.combo.getRegions());
 	private static float animationTimerComboAnim;
