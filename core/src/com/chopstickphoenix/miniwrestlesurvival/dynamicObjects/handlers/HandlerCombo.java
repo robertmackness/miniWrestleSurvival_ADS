@@ -49,7 +49,7 @@ public class HandlerCombo {
 		
 		if (previousComboMultiplier < comboMultiplier()){
 			previousComboMultiplier = comboMultiplier();
-			AssetLoader.comboSound.play();
+			AssetLoader.cashRegister.play();
 			playCombo = true;
 		}
 		

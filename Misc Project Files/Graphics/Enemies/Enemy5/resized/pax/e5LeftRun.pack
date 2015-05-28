@@ -1,0 +1,61 @@
+
+e5LeftRun.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+e5Run1
+  rotate: false
+  xy: 1, 261
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+e5Run2
+  rotate: false
+  xy: 1, 131
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+e5Run4
+  rotate: false
+  xy: 1, 131
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+e5Run3
+  rotate: false
+  xy: 99, 261
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+e5Run6
+  rotate: false
+  xy: 1, 1
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+e5Run7
+  rotate: false
+  xy: 99, 131
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+e5Run9
+  rotate: false
+  xy: 99, 131
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+e5Run8
+  rotate: false
+  xy: 99, 1
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1

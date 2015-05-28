@@ -1,0 +1,19 @@
+
+mainCharacterRunning_Right.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+mainCharacter_Running_Right
+  rotate: false
+  xy: 1, 1
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 1
+mainCharacter_Running_Right
+  rotate: false
+  xy: 35, 1
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: 2

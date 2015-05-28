@@ -116,6 +116,7 @@ public abstract class HandlerCollisions {
 				e.setState(enumEnemyState.FIGHTING);
 				e.setJustFighting(true);
 				gameData.setHealth(gameData.getHealth() - e.getDamage());
+				HandlerPunchNoises.punchNoise();
 			}//reset enemies from FIGHTING to ALIVE without messing up enemies in SPAWNING state
 			if (! e.getrectangleCollision().overlaps(mainCharacter.getRectangleCollision())
 					&& e.getJustFighting() == true){

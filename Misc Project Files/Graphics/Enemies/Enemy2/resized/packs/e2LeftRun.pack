@@ -1,0 +1,61 @@
+
+e2LeftRun.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+e2LRun1
+  rotate: false
+  xy: 1, 261
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+e2LRun2
+  rotate: false
+  xy: 1, 131
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+e2LRun4
+  rotate: false
+  xy: 1, 131
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+e2LRun3
+  rotate: false
+  xy: 99, 261
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+e2LRun6
+  rotate: false
+  xy: 1, 1
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+e2LRun7
+  rotate: false
+  xy: 99, 131
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+e2LRun9
+  rotate: false
+  xy: 99, 131
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+e2LRun8
+  rotate: false
+  xy: 99, 1
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
