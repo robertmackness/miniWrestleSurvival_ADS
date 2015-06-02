@@ -11,7 +11,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class AssetLoader {
 	//Backgrounds
-	static public TextureRegion backgroundMainMenu, backgroundGameScreen, backgroundLevelComplete, backgroundHighScore, backgroundTutorial;
+	static public TextureRegion backgroundMainMenu, backgroundGameScreen, backgroundLevelComplete, backgroundHighScore, backgroundTutorial, backgroundArena;
 	//Misc
 	static public BitmapFont font, fontLarge;
 	//HUD
@@ -52,6 +52,7 @@ public class AssetLoader {
 		backgroundMainMenu = new TextureRegion(new Texture(Gdx.files.internal("backgrounds/wrestleRumbleMainMenu.png")));
 		backgroundLevelComplete = new TextureRegion(new Texture(Gdx.files.internal("backgrounds/wrestleRumbleLevelUpScreen.png")));
 		backgroundTutorial  = new TextureRegion(new Texture(Gdx.files.internal("backgrounds/wrestleRumbleTutorial.png")));
+		backgroundArena = new TextureRegion(new Texture(Gdx.files.internal("backgrounds/wrestlingRingUpgradeBackGround.png")));
 		//Misc
 		font = new BitmapFont(Gdx.files.internal("Fonts/font.fnt"));
 		fontLarge = new BitmapFont(Gdx.files.internal("Fonts/fontLarge.fnt"));

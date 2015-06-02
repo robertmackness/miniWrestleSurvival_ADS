@@ -28,6 +28,9 @@ public class GameScreen implements Screen {
 	private GameData gameData;
 	//Sprites, Fonts and other assets
 	private Sprite spriteBackground;
+	private Sprite spriteBackgroundArena;
+	private float intBGArenaX;
+	private float intBGArenaY;
 	private BitmapFont font = AssetLoader.font;
 	//Camera and SpriteBatch
 	private OrthographicCamera camera;
@@ -70,6 +73,11 @@ public class GameScreen implements Screen {
 		batch = new SpriteBatch();
 		gameState = enumGameState.RUNNING;
 		mainCharacter = gameData.getMainCharacter();
+		//parallax background initalisation
+		spriteBackgroundArena = new Sprite(AssetLoader.backgroundArena);
+		spriteBackgroundArena.setPosition(-500, -218);
+		intBGArenaX =  mainCharacter.getPosition().x;
+		intBGArenaY =  mainCharacter.getPosition().y;
 		//HUD
 		handlerHUD = new HandlerGameScreenInputandHUD(wrestleRumble, gameData, this);
 		//Lightning Objects and Behavior
@@ -125,10 +133,33 @@ public class GameScreen implements Screen {
 		Gdx.gl.glClearColor(0.01f, 0.01f, 0.01f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.setProjectionMatrix(camera.combined);
+		//move background arena x co-ord before rendering
+		if (intBGArenaX == mainCharacter.getPosition().x){
+ 		}else if (intBGArenaX > mainCharacter.getPosition().x){
+			spriteBackgroundArena.setPosition(spriteBackgroundArena.getX() - 4, spriteBackgroundArena.getY());
+			intBGArenaX = mainCharacter.getPosition().x;
+		}else if (intBGArenaX < mainCharacter.getPosition().x){
+			spriteBackgroundArena.setPosition(spriteBackgroundArena.getX() + 4, spriteBackgroundArena.getY());
+			intBGArenaX = mainCharacter.getPosition().x;
+		}
+		//move background arena y co-ord before rendering
+		if (intBGArenaY == mainCharacter.getPosition().y){
+ 		}else if (intBGArenaY > mainCharacter.getPosition().y){
+			spriteBackgroundArena.setPosition(spriteBackgroundArena.getX(), spriteBackgroundArena.getY() - 3);
+			intBGArenaY = mainCharacter.getPosition().y;
+			if (spriteBackgroundArena.getY() < -778){
+				spriteBackgroundArena.setY(-778);
+			}
+		}else if (intBGArenaY < mainCharacter.getPosition().y){
+			spriteBackgroundArena.setPosition(spriteBackgroundArena.getX(), spriteBackgroundArena.getY() + 3);
+			intBGArenaY = mainCharacter.getPosition().y;
+		}
+		//move camera before rendering
 		camera.position.set(mainCharacter.getRectangleCollision().x+48, mainCharacter.getRectangleCollision().y + 720/4, 0);
 		camera.update();
 		//Batch commands begin
 		batch.begin();
+		spriteBackgroundArena.draw(batch);
 		batch.draw(spriteBackground, 0, 0);
 		handlerChairs.render(batch);
 		handlerFarts.render(batch);
