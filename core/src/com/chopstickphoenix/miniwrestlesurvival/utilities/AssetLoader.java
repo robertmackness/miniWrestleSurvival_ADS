@@ -20,7 +20,8 @@ public class AssetLoader {
 	static public TextureRegion hudOverlay;
 	static public TextureAtlas combo;
 	//Dynamic Game Objects
-	static public TextureRegion chairBullet, enemy1, enemy2, enemy3, enemy4, enemy5, enemy6, enemy7, explosion, lightning1, lightning2, lightning3, piano;
+	static public TextureRegion chairBullet, explosion, lightning1, lightning2, lightning3, piano,
+								powerupHealth, powerupChair, powerupCash, powerupFarts;
 	static public TextureAtlas explosionSmall, explosionLarge, animationDollar;
 	//Main Character Assets
 	static public TextureAtlas mainCharacterRunningRight, mainCharacterThrowChairRight,
@@ -73,19 +74,16 @@ public class AssetLoader {
 		explosion = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/explosion.png")));
 		chairBullet = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/chair.png")));
 		piano = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/piano.png")));
-		enemy1 = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/enemy1.png")));
-		enemy2 = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/enemy2.png")));
-		enemy3 = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/enemy3.png")));
-		enemy4 = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/enemy4.png")));
-		enemy5 = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/enemy5.png")));
-		enemy6 = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/enemy6.png")));
-		enemy7 = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/enemy7.png")));
 		lightning1 = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/lightning1.png")));
 		lightning2 = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/lightning2.png")));
 		lightning3 = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/lightning3.png")));
 		explosionSmall = new TextureAtlas(Gdx.files.internal("animations/explosions/explosionSmall.pack"));
 		explosionLarge = new TextureAtlas(Gdx.files.internal("animations/explosions/explosionLarge.pack"));
 		animationDollar = new TextureAtlas(Gdx.files.internal("animations/dollar/animationDollar.pack"));
+		powerupHealth = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/powerupHealth.png")));
+		powerupChair = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/powerupChairs.png")));
+		powerupCash = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/powerupCash.png")));
+		powerupFarts = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/powerupFarts.png")));
 		//Main Character Assets
 		mainCharacterRunningLeft = new TextureAtlas(Gdx.files.internal("animations/mainCharacter/mainLeftRun.pack"));
 		mainCharacterRunningRight = new TextureAtlas(Gdx.files.internal("animations/mainCharacter/mainRightRun.pack"));

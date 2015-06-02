@@ -50,6 +50,7 @@ public abstract class HandlerCollisions {
 			//remove current enemy if dead
 			if(e.state == enumEnemyState.DEAD){
 				gameData.setCurrentScore(gameData.getCurrentScore() + (e.getStartingHealth()*2)*HandlerCombo.comboMultiplier()); //TODO check this works comboMultiplier
+				HandlerPowerUps.rollTheDice((int)e.getX());
 				iteratorEnemies.remove();
 				//enemies.removeValue(e, true);
 				System.out.println("enemy dead trigger");

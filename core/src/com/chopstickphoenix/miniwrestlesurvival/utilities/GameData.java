@@ -10,6 +10,7 @@ import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.Enemy;
 import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.Fart;
 import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.Lightning;
 import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.MainCharacter;
+import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.PowerUp;
 
 public class GameData {
 
@@ -24,7 +25,9 @@ public class GameData {
 	private Array<Chair> arrayChairs;
 	private Array<Lightning> arrayLightning;
 	private Array<Fart> arrayFarts;
- 
+	private Array<PowerUp> arrayPowerups;
+	private int powerUpChairModifier;
+	
 	public GameData(){
 		health = 100;
 		cansOfBeans = 3;
@@ -36,7 +39,9 @@ public class GameData {
 		arrayChairs = new Array<Chair>();
 		arrayLightning = new Array<Lightning>();
 		arrayFarts = new Array<Fart>();
+		arrayPowerups = new Array<PowerUp>();
 		mainCharacter = new MainCharacter(getHealth(), getAttackPower(), getCansOfBeans(), this);
+		powerUpChairModifier = 1;
 	}
 
 	public void setCurrentScore(int score) {
@@ -56,6 +61,9 @@ public class GameData {
 	}
 	
 	//Getters and Setters
+	public Array<PowerUp> getArrayPowerups(){
+		return arrayPowerups;
+	}
 	public Array<Enemy> getArrayEnemies(){
 		return arrayEnemies;
 	}
@@ -117,5 +125,11 @@ public class GameData {
 	}
 	public Vector2 getMainCharacterPosition(){
 		return mainCharacter.getPosition();
+	}
+	public int getPowerupChairModifier(){
+		return powerUpChairModifier;
+	}
+	public void setPowerupChairModifier(int i){
+		powerUpChairModifier = i;
 	}
 }

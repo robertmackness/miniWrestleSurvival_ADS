@@ -18,6 +18,7 @@ import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.handlers.HandlerF
 import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.handlers.HandlerGameScreenInputandHUD;
 import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.handlers.HandlerLightning;
 import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.handlers.HandlerPiano;
+import com.chopstickphoenix.miniwrestlesurvival.dynamicObjects.handlers.HandlerPowerUps;
 import com.chopstickphoenix.miniwrestlesurvival.utilities.AssetLoader;
 import com.chopstickphoenix.miniwrestlesurvival.utilities.GameData;
 
@@ -42,6 +43,7 @@ public class GameScreen implements Screen {
 	private HandlerLightning handlerLightning;
 	private HandlerFarts handlerFarts;
 	private HandlerPiano handlerPianos;
+	private HandlerPowerUps handlerPowerUps;
 	//HUD
 	private HandlerGameScreenInputandHUD handlerHUD;
 	//Fixed Timestep limited to 60FPS to avoid spiral of death on the collision detection
@@ -82,6 +84,8 @@ public class GameScreen implements Screen {
 		handlerPianos =  new HandlerPiano(gameData);
 		//Combo Stuff
 		HandlerCombo.clearComboCounter();
+		//PowerUps Stuff
+		handlerPowerUps = new HandlerPowerUps(gameData);
 	}
 
 	@Override
@@ -132,6 +136,7 @@ public class GameScreen implements Screen {
 		handlerEnemies.render(batch, delta);
 		handlerLightning.render(batch, delta);
 		handlerPianos.draw(batch, delta);
+		handlerPowerUps.draw(batch);
 		batch.end();
 		handlerHUD.drawHUD(delta); //used to send (batch) as parameter
 		//Batch commands end
@@ -145,6 +150,7 @@ public class GameScreen implements Screen {
 		handlerLightning.update();
 		handlerFarts.update();
 		handlerPianos.update();
+		handlerPowerUps.update();
 		mainCharacter.updateHealthbar();
 		//check to see if last enemy of the round has been killed
 		if(handlerEnemies.getLastEnemySpawned() && gameData.getArrayEnemies().size == 0){

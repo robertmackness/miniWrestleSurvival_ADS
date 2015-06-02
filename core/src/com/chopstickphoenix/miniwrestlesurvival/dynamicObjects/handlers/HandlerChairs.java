@@ -28,7 +28,7 @@ public class HandlerChairs {
 	
 	public void throwChair() {
 		
-		if(TimeUtils.nanoTime() - chairBulletTimer > chairBulletInterval){
+		if(TimeUtils.nanoTime() - chairBulletTimer > (chairBulletInterval / gameData.getPowerupChairModifier())){
 			
 			mainCharacter.setAnimationState(enumAnimationState.THROWING_CHAIR);
 			//Sound Effect
