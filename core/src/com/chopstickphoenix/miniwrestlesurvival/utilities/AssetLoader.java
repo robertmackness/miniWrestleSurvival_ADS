@@ -15,7 +15,7 @@ public class AssetLoader {
 	//Misc
 	static public BitmapFont font, fontLarge;
 	//HUD
-	static public TextureRegion levelComplete, gameOver;
+	static public TextureRegion levelComplete, gameOver, buyButton;
 	static public TextureRegion combo1, combo2, combo3, combo4, combo5, combo6, combo7, combo8, combo9, combo10;
 	static public TextureRegion hudOverlay;
 	static public TextureAtlas combo;
@@ -71,6 +71,7 @@ public class AssetLoader {
 		combo9 = new TextureRegion (new Texture (Gdx.files.internal("hud/combo9.png")));
 		combo10 = new TextureRegion (new Texture (Gdx.files.internal("hud/combo10.png")));
 		combo = new TextureAtlas(Gdx.files.internal("hud/comboAnim.pack"));
+		buyButton = new TextureRegion (new Texture (Gdx.files.internal("hud/buyButton.png")));
 		//Dynamic Game Objects
 		explosion = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/explosion.png")));
 		chairBullet = new TextureRegion(new Texture(Gdx.files.internal("dynamicObjects/chair.png")));

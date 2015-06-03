@@ -9,6 +9,8 @@ import com.chopstickphoenix.miniwrestlesurvival.utilities.AssetLoader;
 public class Chair {
 
 	private int velocity = 0;
+	private int boundaryY = 0;
+	private int gravity = 12;
 	private Sprite sprite;
 	static final private int WIDTH = 32;
 	static final private int HEIGHT = 64; //more room to animate
@@ -29,8 +31,10 @@ public class Chair {
 	//Update to be called in logicStep() via Render() on GameScreen
 	public void update(){
 		sprite.setX(sprite.getX()+velocity);
+		sprite.setY(sprite.getY() + gravity);
+		gravity--;
 		rectangleCollision.setPosition(sprite.getX(), sprite.getY());
-		if (getrectangleCollision().x > 1280 || getrectangleCollision().x < 0){
+		if (getrectangleCollision().y < boundaryY){
 			setState(chair_state.OFF_SCREEN);
 		}
 	}

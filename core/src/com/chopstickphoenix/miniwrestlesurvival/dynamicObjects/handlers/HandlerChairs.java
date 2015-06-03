@@ -16,7 +16,7 @@ public class HandlerChairs {
 	static private Array<Chair> arrayChairs;
 	static private float chairBulletTimer;
 	static private float chairBulletInterval = 250000000;
-	static final private int CHAIRBULLET_SPEED = 12;
+	static final private int CHAIRBULLET_SPEED = 20;
 	static private MainCharacter mainCharacter;
 	
 	public HandlerChairs(GameData g){

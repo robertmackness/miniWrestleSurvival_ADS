@@ -38,14 +38,16 @@ public class LevelComplete implements Screen {
 	
 	//Dynamic Textfields
 	private Vector2 scorePosition = new 		Vector2(765,140);
-	private Vector2 attackPowerPosition = new 	Vector2(145,310);
-	private Vector2 healthPosition = new 		Vector2(145,210);
-	private Vector2 energyPosition = new 		Vector2(145,110);
+	private Vector2 attackPowerPosition = new 	Vector2(145,302);
+	private Vector2 healthPosition = new 		Vector2(145,200);
+	private Vector2 energyPosition = new 		Vector2(145,98);
 	//HUD
 	private Rectangle rectNextLevel = new Rectangle(1110, 0, 170, 128);
-	private Rectangle rectBuyAttackPwr = new Rectangle(140, 313, 188, 56);
-	private Rectangle rectBuyHealth = new Rectangle(140,213,370,56);
-	private Rectangle rectBuyEnergy = new Rectangle (140,113,187,56);
+	
+	private Rectangle rectBuyAttackPwr = new Rectangle(335, 313, 128, 64);
+	private Rectangle rectBuyHealth = new Rectangle(517, 213, 128, 54);
+	private Rectangle rectBuyEnergy = new Rectangle (334, 113, 128, 64);
+	private Sprite buyButton = new Sprite(AssetLoader.buyButton);
 	
 	//Temporary Score Handler Variables
 	private int intCostAtkPwr;
@@ -110,17 +112,34 @@ public class LevelComplete implements Screen {
 		batch.begin();
 		spriteBackground.draw(batch);
 		//Score string
-		stringCurrentScore = ""+ gameData.getCurrentScore();
+		stringCurrentScore = "$"+ gameData.getCurrentScore();
 		font.draw(batch, stringCurrentScore, scorePosition.x - font.getBounds(stringCurrentScore).width/2, scorePosition.y - font.getBounds(stringCurrentScore).height/2);
 		//atk pwr steak string
-		if(gameData.getAttackPower() < 10)font.draw(batch, "Attack Power Upgrade: "+ intCostAtkPwr, attackPowerPosition.x, attackPowerPosition.y);
-		if(gameData.getAttackPower() >= 10)font.draw(batch, "No upgrades available", attackPowerPosition.x, attackPowerPosition.y);
+		if(gameData.getCurrentScore() >= intCostAtkPwr && gameData.getAttackPower() <10){
+			font.draw(batch, "Attack Power Upgrade: $"+ intCostAtkPwr, attackPowerPosition.x, attackPowerPosition.y);
+			buyButton.setPosition(rectBuyAttackPwr.x, rectBuyAttackPwr.y);
+			buyButton.draw(batch);
+		}else if(gameData.getAttackPower() >= 10){
+			font.draw(batch, "No upgrades available", attackPowerPosition.x, attackPowerPosition.y);
+		}else {
+			font.draw(batch, "Insufficient funds", attackPowerPosition.x, attackPowerPosition.y);
+		}
 		//health vegetables string
-		if(gameData.getHealth()<100)font.draw(batch, "Health Restore: "+ intCostHealth, healthPosition.x, healthPosition.y);
-		if(gameData.getHealth()==100)font.draw(batch, "Health at 100%", healthPosition.x, healthPosition.y);
+		if(gameData.getCurrentScore() >= intCostHealth && gameData.getHealth() != 100){
+			font.draw(batch, "Health Restore: $"+ intCostHealth, healthPosition.x, healthPosition.y);
+			buyButton.setPosition(rectBuyHealth.x, rectBuyHealth.y);
+			buyButton.draw(batch);
+		} else if(gameData.getHealth()==100){
+			font.draw(batch, "Health at 100%", healthPosition.x, healthPosition.y);
+		}
 		//beanz string
-		if(gameData.getCansOfBeans() < 3)font.draw(batch, "Extra fartz: " + intCostBeanz, energyPosition.x, energyPosition.y);
-		if(gameData.getCansOfBeans() == 3)font.draw(batch, "3/3 fartz", energyPosition.x, energyPosition.y);
+		if(gameData.getCurrentScore() >= intCostBeanz && gameData.getCansOfBeans() <= 2){
+			font.draw(batch, "Extra fartz: $" + intCostBeanz, energyPosition.x, energyPosition.y);
+			buyButton.setPosition(rectBuyEnergy.x, rectBuyEnergy.y);
+			buyButton.draw(batch);
+		} else if(gameData.getCansOfBeans() == 3){
+			font.draw(batch, "3/3 fartz", energyPosition.x, energyPosition.y);
+		}
 		// draw dollar signs
 		for (DollarSign d : dollars){
 			d.draw(batch, delta);
